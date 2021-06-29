@@ -67,6 +67,11 @@ export function CalculateDueDate(this: App, submitDateTime: string, turnaroundTi
     if (!SubmitDate)
         return false;
 
+    // Prevent the calculator to contiue if the given date is not Eligible (out of working hours)
+    let isSubmitDateEligible = IsSubmitEligible(SubmitDate);
+    if (!isSubmitDateEligible)
+        return false;
+
     return true;
 }
 
