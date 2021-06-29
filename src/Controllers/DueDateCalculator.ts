@@ -8,7 +8,14 @@ import App from "../AppClass";
 const ConvertStringTimeToDateObject = (inputDateString: string) => {
     let date = new Date(inputDateString);
 
-    return date;
+    // Validate input
+    if ( date.getTime() === date.getTime() ) {
+        // Return the actual object in case if it was correct.
+        return date;
+    } else {
+        // Return false if its wrong.
+        return false;
+    }
 }
 
 /**
@@ -20,3 +27,5 @@ const ConvertStringTimeToDateObject = (inputDateString: string) => {
 export function CalculateDueDate(this: App, submitDateTime: string, turnaroundTime: string) {
     return true;
 }
+
+export default { ConvertStringTimeToDateObject };
