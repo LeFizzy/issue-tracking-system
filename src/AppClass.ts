@@ -1,3 +1,5 @@
+import { CalculateDueDate } from "./Controllers/DueDateCalculator";
+
 /**
     * Core webserviceClass of Issue Tracking System.
 */
@@ -15,6 +17,9 @@ class App {
 
         return true;
     }
+
+    // Bind the CalculateDueDate method
+    public CalculateDueDateMethod = CalculateDueDate.bind(this);
 }
 
 export default App;
