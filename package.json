@@ -4,7 +4,7 @@
     "description": "An issue tracking system with Due-Date-Calculator mockup.",
     "main": "dist/index.js",
     "scripts": {
-        "start": "tsc && node dist/index.js",
+        "start": "tsc && node dist/src/index.js",
         "test": "mocha -r ts-node/register test/test.ts"
     },
     "author": "Milan Zeisler",
