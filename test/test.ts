@@ -79,7 +79,7 @@ describe('[Test Cases]', function () {
             const AppService = new App();
             AppService.init();
             
-            let result = AppService.CalculateDueDateMethod();
+            let result = AppService.CalculateDueDateMethod("Wed Jun 29 2021 14:26:52", "40");
 
             expect(result).to.equal(true);
         });

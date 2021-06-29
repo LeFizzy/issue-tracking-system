@@ -66,9 +66,14 @@ const IsSubmitEligible = (date: any) => {
 */
 export function CalculateDueDate(this: App, submitDateTime: string, turnaroundTime: string) {
     let SubmitDate = ConvertStringTimeToDateObject(submitDateTime);
+    let TurnaroundTime = ConvertStringTurnaroundToHourNumber(turnaroundTime);
 
     // Prevent the calculator to continue if the given date was invalid.
     if (!SubmitDate)
+        return false;
+
+    // Prevent the calculator to continue if the given turnatound time was invalid.
+    if (!TurnaroundTime)
         return false;
 
     // Prevent the calculator to contiue if the given date is not Eligible (out of working hours)
@@ -76,7 +81,25 @@ export function CalculateDueDate(this: App, submitDateTime: string, turnaroundTi
     if (!isSubmitDateEligible)
         return false;
 
-    return true;
+    // Get SubmitDateTime from dateTime
+    let SubmitDateTime = SubmitDate.getTime();
+    let EndDueDate = new Date(SubmitDateTime);
+    let EndDueDateHours = EndDueDate.getHours();
+
+    let WorkHoursLeft = 0;
+
+    // Loop until we run out of "work hours"
+    while ( WorkHoursLeft < TurnaroundTime ) {
+        EndDueDateHours = EndDueDate.getHours();
+
+        // Move the current time by 1 hour
+        EndDueDate = new Date(EndDueDate.setHours(EndDueDateHours + 1));
+
+        if ( IsSubmitEligible(EndDueDate) )
+            WorkHoursLeft = WorkHoursLeft + 1;
+    }
+
+    return EndDueDate;
 }
 
 export default { ConvertStringTimeToDateObject, ConvertStringTurnaroundToHourNumber, IsSubmitEligible };
