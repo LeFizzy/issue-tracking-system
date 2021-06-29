@@ -11,4 +11,15 @@ describe('[Test Cases]', function () {
             expect(result).to.equal(true);
         });
     });
+
+    describe('[DueDateCalculator Method] Test case #1', function () {
+        it('should return true', function () {
+            const AppService = new App();
+            AppService.init();
+            
+            let result = AppService.CalculateDueDateMethod();
+
+            expect(result).to.equal(true);
+        });
+    });
 });
