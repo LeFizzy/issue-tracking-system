@@ -87,10 +87,12 @@ describe('[DueDateCalculator Method Functional]', function () {
         it('should return true', function () {
             const AppService = new App();
             AppService.init();
+
+            let ShouldDateHelper = new Date("Tue, 29 Jun 2021 16:31:21.591Z");
             
             let result = AppService.CalculateDueDateMethod("2021-06-29T12:31:21.591Z", "4");
 
-            expect(result).to.equal(new Date("Tue, 29 Jun 2021 16:31:21 GMT"));
+            expect(result).to.equal(ShouldDateHelper);
         });
     });
 
@@ -98,10 +100,12 @@ describe('[DueDateCalculator Method Functional]', function () {
         it('should return true', function () {
             const AppService = new App();
             AppService.init();
+
+            let ShouldDateHelper = new Date("Thu, 01 Jul 2021 12:31:21.591Z");
             
             let result = AppService.CalculateDueDateMethod("2021-06-29T12:31:21.591Z", "16");
 
-            expect(result).to.equal(new Date("Thu, 01 Jul 2021 10:31:21 GMT"));
+            expect(result).to.equal(ShouldDateHelper);
         });
     });
 });
