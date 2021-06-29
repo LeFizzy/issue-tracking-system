@@ -27,6 +27,10 @@ const ConvertStringTimeToDateObject = (inputDateString: string) => {
 export function CalculateDueDate(this: App, submitDateTime: string, turnaroundTime: string) {
     let SubmitDate = ConvertStringTimeToDateObject(submitDateTime);
 
+    // Prevent the calculator to continue if the given date was invalid.
+    if (!SubmitDate)
+        return false;
+
     return true;
 }
 
