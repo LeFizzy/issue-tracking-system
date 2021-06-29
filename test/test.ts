@@ -3,7 +3,8 @@ import DueDateCalculator from "../src/Controllers/DueDateCalculator";
 import { expect } from 'chai';
 import 'mocha';
 
-describe('[Test Cases]', function () {
+// Core App Test Cases
+describe('[Core App Test]', function () {
     describe('Core AppService Init Test', function () {
         it('should return true', function () {
             const AppService = new App();
@@ -12,8 +13,11 @@ describe('[Test Cases]', function () {
             expect(result).to.equal(true);
         });
     });
+});
 
-    describe('[DueDateCalculator Method] Test case #1: (ConvertStringTimeToDateObject: must FAIL)', function () {
+// DueDateCalculator Unit Test Cases
+describe('[DueDateCalculator Method Unit]', function () {
+    describe('Test case #1: (ConvertStringTimeToDateObject: must FAIL)', function () {
         it('should return true', function () {
             let result = DueDateCalculator.ConvertStringTimeToDateObject("test");
 
@@ -21,7 +25,7 @@ describe('[Test Cases]', function () {
         });
     });
 
-    describe('[DueDateCalculator Method] Test case #2: (ConvertStringTimeToDateObject: must PASS)', function () {
+    describe('Test case #2: (ConvertStringTimeToDateObject: must PASS)', function () {
         it('should return true', function () {
             let date = new Date().toLocaleString();
             let result = DueDateCalculator.ConvertStringTimeToDateObject(date);
@@ -30,7 +34,7 @@ describe('[Test Cases]', function () {
         });
     });
 
-    describe('[DueDateCalculator Method] Test case #3: (ConvertStringTurnaroundToHourNumber: must FAIL)', function () {
+    describe('Test case #3: (ConvertStringTurnaroundToHourNumber: must FAIL)', function () {
         it('should return true', function () {
             let result = DueDateCalculator.ConvertStringTurnaroundToHourNumber("test");
 
@@ -38,7 +42,7 @@ describe('[Test Cases]', function () {
         });
     });
 
-    describe('[DueDateCalculator Method] Test case #4: (ConvertStringTurnaroundToHourNumber: must PASS)', function () {
+    describe('Test case #4: (ConvertStringTurnaroundToHourNumber: must PASS)', function () {
         it('should return true', function () {
             let turnaroundTime = "40";
             let result = DueDateCalculator.ConvertStringTurnaroundToHourNumber(turnaroundTime);
@@ -47,7 +51,7 @@ describe('[Test Cases]', function () {
         });
     });
 
-    describe('[DueDateCalculator Method] Test case #5: (IsSubmitEligible: must FAIL)', function () {
+    describe('Test case #5: (IsSubmitEligible: must FAIL)', function () {
         it('should return true', function () {
             let date = new Date("2021-06-29T07:42:56.935Z");
             let result = DueDateCalculator.IsSubmitEligible(date);
@@ -56,7 +60,7 @@ describe('[Test Cases]', function () {
         });
     });
 
-    describe('[DueDateCalculator Method] Test case #6: (IsSubmitEligible: must PASS)', function () {
+    describe('Test case #6: (IsSubmitEligible: must PASS)', function () {
         it('should return true', function () {
             let date = new Date("2021-06-29T09:17:56.935Z");
             let result = DueDateCalculator.IsSubmitEligible(date);
@@ -65,7 +69,7 @@ describe('[Test Cases]', function () {
         });
     });
 
-    describe('[DueDateCalculator Method] Test case #5: (IsSubmitEligible: must FAIL)', function () {
+    describe('Test case #7: (IsSubmitEligible: must FAIL)', function () {
         it('should return true', function () {
             let date = new Date("2021-06-29T17:06:56.935Z");
             let result = DueDateCalculator.IsSubmitEligible(date);
@@ -73,15 +77,29 @@ describe('[Test Cases]', function () {
             expect(result).to.equal(false);
         });
     });
+});
 
-    describe('[DueDateCalculator Method] Test case #7', function () {
+// DueDateCalculator TDD Test Cases
+describe('[DueDateCalculator Method Functional]', function () {
+    describe('Test case #1', function () {
         it('should return true', function () {
             const AppService = new App();
             AppService.init();
             
-            let result = AppService.CalculateDueDateMethod("Wed Jun 29 2021 14:26:52", "40");
+            let result = AppService.CalculateDueDateMethod("2021-06-29T12:31:21.591Z", "4");
 
-            expect(result).to.equal(true);
+            expect(result).to.equal(new Date("Tue, 29 Jun 2021 16:31:21 GMT"));
+        });
+    });
+
+    describe('Test case #2', function () {
+        it('should return true', function () {
+            const AppService = new App();
+            AppService.init();
+            
+            let result = AppService.CalculateDueDateMethod("2021-06-29T12:31:21.591Z", "16");
+
+            expect(result).to.equal(new Date("Thu, 01 Jul 2021 10:31:21 GMT"));
         });
     });
 });

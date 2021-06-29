@@ -5,7 +5,7 @@ const AppService = new App();
 AppService.init();
 
 // Run test calculation
-let result = AppService.CalculateDueDateMethod("2021-06-29T12:31:21.591Z", "4");
+let result = AppService.CalculateDueDateMethod("2021-06-29T12:31:21.591Z", "16");
 
 if (result) {
     console.log(result);
