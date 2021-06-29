@@ -1,0 +1,23 @@
+{
+    "name": "issue-tracking-system",
+    "version": "1.0.0",
+    "description": "An issue tracking system with Due-Date-Calculator mockup.",
+    "main": "dist/src/index.js",
+    "scripts": {
+        "start": "tsc && node dist/src/index.js",
+        "test": "mocha -r ts-node/register test/test.ts"
+    },
+    "author": "Milan Zeisler",
+    "license": "ISC",
+    "devDependencies": {
+        "@types/chai": "^4.2.18",
+        "@types/mocha": "^8.2.2",
+        "@types/node": "^15.0.2",
+        "chai": "^4.3.4",
+        "dotenv": "^9.0.1",
+        "mocha": "^8.4.0",
+        "ts-node": "^9.1.1",
+        "tslint": "^6.1.3",
+        "typescript": "^4.2.4"
+    }
+}
