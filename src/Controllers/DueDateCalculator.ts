@@ -19,6 +19,24 @@ const ConvertStringTimeToDateObject = (inputDateString: string) => {
 }
 
 /**
+    * Convert StringTurnaroundTime To Hour Number-datatype.
+    * @param {String} turnaroundTime
+    * @returns {Number} Hour
+*/
+const ConvertStringTurnaroundToHourNumber = (turnaroundTime: string) => {
+    let hours = Number(turnaroundTime);
+
+    // Validate input
+    if ( !isNaN(hours) ) {
+        // Return the actual Number in case if it was correct.
+        return hours;
+    } else {
+        // Return false if its wrong.
+        return false;
+    }
+}
+
+/**
     * Calculate Due Date method.
     * @param {String} submitDateTime
     * @param {String} turnaroundTime
@@ -34,4 +52,4 @@ export function CalculateDueDate(this: App, submitDateTime: string, turnaroundTi
     return true;
 }
 
-export default { ConvertStringTimeToDateObject };
+export default { ConvertStringTimeToDateObject, ConvertStringTurnaroundToHourNumber };

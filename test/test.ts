@@ -30,7 +30,24 @@ describe('[Test Cases]', function () {
         });
     });
 
-    describe('[DueDateCalculator Method] Test case #3', function () {
+    describe('[DueDateCalculator Method] Test case #3: (ConvertStringTurnaroundToHourNumber: must FAIL)', function () {
+        it('should return true', function () {
+            let result = DueDateCalculator.ConvertStringTurnaroundToHourNumber("test");
+
+            expect(result).to.equal(false);
+        });
+    });
+
+    describe('[DueDateCalculator Method] Test case #4: (ConvertStringTurnaroundToHourNumber: must PASS)', function () {
+        it('should return true', function () {
+            let turnaroundTime = "40";
+            let result = DueDateCalculator.ConvertStringTurnaroundToHourNumber(turnaroundTime);
+
+            expect(result).to.equal(40);
+        });
+    });
+
+    describe('[DueDateCalculator Method] Test case #5', function () {
         it('should return true', function () {
             const AppService = new App();
             AppService.init();
