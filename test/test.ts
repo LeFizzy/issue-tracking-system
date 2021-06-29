@@ -47,7 +47,34 @@ describe('[Test Cases]', function () {
         });
     });
 
-    describe('[DueDateCalculator Method] Test case #5', function () {
+    describe('[DueDateCalculator Method] Test case #5: (IsSubmitEligible: must FAIL)', function () {
+        it('should return true', function () {
+            let date = new Date("2021-06-29T07:42:56.935Z");
+            let result = DueDateCalculator.IsSubmitEligible(date);
+
+            expect(result).to.equal(false);
+        });
+    });
+
+    describe('[DueDateCalculator Method] Test case #6: (IsSubmitEligible: must PASS)', function () {
+        it('should return true', function () {
+            let date = new Date("2021-06-29T09:17:56.935Z");
+            let result = DueDateCalculator.IsSubmitEligible(date);
+
+            expect(result).to.equal(true);
+        });
+    });
+
+    describe('[DueDateCalculator Method] Test case #5: (IsSubmitEligible: must FAIL)', function () {
+        it('should return true', function () {
+            let date = new Date("2021-06-29T17:06:56.935Z");
+            let result = DueDateCalculator.IsSubmitEligible(date);
+
+            expect(result).to.equal(false);
+        });
+    });
+
+    describe('[DueDateCalculator Method] Test case #7', function () {
         it('should return true', function () {
             const AppService = new App();
             AppService.init();

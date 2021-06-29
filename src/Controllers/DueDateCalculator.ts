@@ -37,6 +37,24 @@ const ConvertStringTurnaroundToHourNumber = (turnaroundTime: string) => {
 }
 
 /**
+    * Validate whetner the given submit-date is eligible (must be in working hours).
+    * @param {String} date
+    * @returns {Boolean} verify
+*/
+const IsSubmitEligible = (date: any) => {
+    let hours = date.getHours();
+
+    // Validate input
+    if ( hours >= 9 && hours <= 17 ) {
+        // Return the actual Number in case if it was correct.
+        return true;
+    } else {
+        // Return false if its wrong.
+        return false;
+    }
+}
+
+/**
     * Calculate Due Date method.
     * @param {String} submitDateTime
     * @param {String} turnaroundTime
@@ -52,4 +70,4 @@ export function CalculateDueDate(this: App, submitDateTime: string, turnaroundTi
     return true;
 }
 
-export default { ConvertStringTimeToDateObject, ConvertStringTurnaroundToHourNumber };
+export default { ConvertStringTimeToDateObject, ConvertStringTurnaroundToHourNumber, IsSubmitEligible };
