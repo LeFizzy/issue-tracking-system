@@ -10,8 +10,10 @@ class App {
     }
 
     // Init the webservice.
-    public init(): void {
+    public init(): boolean {
         console.log(this.name + " has started listening.");
+
+        return true;
     }
 }
 
