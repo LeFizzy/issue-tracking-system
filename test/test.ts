@@ -28,9 +28,11 @@ describe('[DueDateCalculator Method Unit]', function () {
     describe('Test case #2: (ConvertStringTimeToDateObject: must PASS)', function () {
         it('should return true', function () {
             let date = new Date().toLocaleString();
+            let ShouldDateHelper = new Date(date);
+
             let result = DueDateCalculator.ConvertStringTimeToDateObject(date);
 
-            expect(result).to.equal(true);
+            expect(result).to.not.equal(ShouldDateHelper);
         });
     });
 

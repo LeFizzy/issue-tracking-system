@@ -44,7 +44,6 @@ const ConvertStringTurnaroundToHourNumber = (turnaroundTime: string) => {
 const IsSubmitEligible = (date: any) => {
     let day = date.getDay();
     let hours = date.getUTCHours();
-    let minutes = date.getMinutes();
 
     // 0 is meant to be Sunday, 5 is Saturday (from getDay)
     let dayEligible = ( day !== 0 && day !== 5 ) ? true : false;
