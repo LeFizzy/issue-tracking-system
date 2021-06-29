@@ -25,6 +25,8 @@ const ConvertStringTimeToDateObject = (inputDateString: string) => {
     * @returns {String} dueDate
 */
 export function CalculateDueDate(this: App, submitDateTime: string, turnaroundTime: string) {
+    let SubmitDate = ConvertStringTimeToDateObject(submitDateTime);
+
     return true;
 }
 
